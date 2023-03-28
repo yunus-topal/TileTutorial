@@ -1,35 +1,41 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private Rigidbody2D rb;
+    public CharacterController2D controller;
 
-    private bool canJump = true;
-    // Start is called before the first frame update
-    void Start()
-    {
-        rb = gameObject.GetComponent<Rigidbody2D>();
-    }
+    public float speed = 20f;
+    private float direction = 0f;
+
+    private bool isJumping = false;
+
+    private bool isCrouching = false;
 
     // Update is called once per frame
     void Update()
     {
-        float direction = Input.GetAxis("Horizontal");
-        rb.velocity = Vector2.right * direction;
-
-        if (Input.GetKey("space"))
+        direction = Input.GetAxisRaw("Horizontal");
+        if (Input.GetButtonDown("Jump"))
         {
-            StartCoroutine(Jump());
+            isJumping = true;
+        }
+
+        if (Input.GetButtonDown("Crouch"))
+        {
+            isCrouching = true;
+        }
+        else if (Input.GetButtonUp("Crouch"))
+        {
+            isCrouching = false;
         }
     }
 
-    IEnumerator Jump()
+    private void FixedUpdate()
     {
-        rb.velocity += Vector2.up;
-        canJump = false;
-        yield return new WaitForSeconds(1f);
-        canJump = true;
+        controller.Move(direction * speed * Time.fixedDeltaTime, isCrouching, isJumping);
+        isJumping = false;
     }
 }
