@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Cinemachine;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -51,11 +52,13 @@ public class GameManager : MonoBehaviour
         fruitCount = 0;
         fruitScore.SetText("x 0");
         restartButton.gameObject.SetActive(false);
-        Instantiate(playerPrefab, playerLocation, Quaternion.identity);
+        GameObject player = Instantiate(playerPrefab, playerLocation, Quaternion.identity);
         for (int i = 0; i < appleLocs.Length; i++)
         {
             Instantiate(applePrefab, appleLocs[i], Quaternion.identity);
         }
+        GameObject cam = GameObject.FindGameObjectWithTag("Cinemachine");
+        cam.GetComponent<CinemachineVirtualCamera>().Follow = player.transform;
     }
 
     private void ClearGame()
