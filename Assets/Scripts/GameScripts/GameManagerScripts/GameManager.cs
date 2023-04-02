@@ -20,6 +20,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject applePrefab;
 
+    public GameObject foreground;
     private Vector3[] appleLocs =
     {
         new Vector3(0.8f, -0.5f, 0),
@@ -32,7 +33,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartGame();
     }
 
     public void IncrementFruit()
@@ -53,6 +54,7 @@ public class GameManager : MonoBehaviour
         fruitScore.SetText("x 0");
         restartButton.gameObject.SetActive(false);
         GameObject player = Instantiate(playerPrefab, playerLocation, Quaternion.identity);
+        gameObject.GetComponent<ShowHiddenArea>().SetPlayer(player);
         for (int i = 0; i < appleLocs.Length; i++)
         {
             Instantiate(applePrefab, appleLocs[i], Quaternion.identity);
@@ -71,5 +73,6 @@ public class GameManager : MonoBehaviour
         
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Destroy(player);
+        foreground.gameObject.SetActive(true);
     }
 }
