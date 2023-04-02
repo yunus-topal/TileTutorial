@@ -16,7 +16,7 @@ public class TrapActivator : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
-            Destroy(col.gameObject);
+            col.gameObject.GetComponent<PlayerStatus>().KillPlayer();
         }
     }
 }
