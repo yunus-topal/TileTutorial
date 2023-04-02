@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D controller;
-
+    public Animator animator;
     public float speed = 20f;
     private float direction = 0f;
 
@@ -18,9 +18,11 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         direction = Input.GetAxisRaw("Horizontal");
+        animator.SetFloat("speed", Math.Abs(direction * speed));
         if (Input.GetButtonDown("Jump"))
         {
             isJumping = true;
+            animator.SetTrigger("jump_trig");
         }
 
         if (Input.GetButtonDown("Crouch"))
