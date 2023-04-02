@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 3314551127969674294}
   - component: {fileID: 3314551127969674293}
   - component: {fileID: 3314551127969674292}
-  - component: {fileID: 3580093299604054499}
+  - component: {fileID: -572774951738049253}
   m_Layer: 0
   m_Name: Apple
-  m_TagString: Untagged
+  m_TagString: Fruit
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,7 +133,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3580093299604054499
+--- !u!114 &-572774951738049253
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
