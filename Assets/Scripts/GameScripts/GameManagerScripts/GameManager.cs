@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI fruitScore;
 
     public Button restartButton;
+    public Button exitButton;
 
     public GameObject playerPrefab;
 
@@ -51,6 +52,7 @@ public class GameManager : MonoBehaviour
             Destroy(player);
         }
         restartButton.gameObject.SetActive(true);
+        exitButton.gameObject.SetActive(true);
     }
 
     public void StartGame()
@@ -59,6 +61,7 @@ public class GameManager : MonoBehaviour
         fruitCount = 0;
         fruitScore.SetText("x 0");
         restartButton.gameObject.SetActive(false);
+        exitButton.gameObject.SetActive(false);
         GameObject player = Instantiate(playerPrefab, playerLocation, Quaternion.identity);
         gameObject.GetComponent<ShowHiddenArea>().SetPlayer(player);
         for (int i = 0; i < appleLocs.Length; i++)
@@ -80,5 +83,10 @@ public class GameManager : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Destroy(player);
         foreground.gameObject.SetActive(true);
+    }
+    
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
