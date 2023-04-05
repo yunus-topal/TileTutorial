@@ -42,8 +42,14 @@ public class GameManager : MonoBehaviour
         fruitScore.SetText(String.Format("x {0}", fruitCount) );
     }
 
-    public void GameOver()
+    public void GameOver(bool won = false)
     {
+        if (won)
+        {
+            //TODO 
+            GameObject player = GameObject.FindGameObjectWithTag("Player");
+            Destroy(player);
+        }
         restartButton.gameObject.SetActive(true);
     }
 

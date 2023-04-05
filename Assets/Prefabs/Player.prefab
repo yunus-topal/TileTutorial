@@ -177,7 +177,7 @@ MonoBehaviour:
     m_Bits: 2147483647
   m_GroundCheck: {fileID: 7382523467879334014}
   m_CeilingCheck: {fileID: 7382523467774388356}
-  m_CrouchDisableCollider: {fileID: 7382523467183489142}
+  m_CrouchDisableCollider: {fileID: 0}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
