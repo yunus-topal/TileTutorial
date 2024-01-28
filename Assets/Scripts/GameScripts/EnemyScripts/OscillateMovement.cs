@@ -25,7 +25,6 @@ public class OscillateMovement : MonoBehaviour
 
     private IEnumerator Oscillate()
     {
-        float verticalRange = 0.2f;
         bool toTarget = true;
         while (true)
         {

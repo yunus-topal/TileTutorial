@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,5 +58,13 @@ public class PlayerStatus : MonoBehaviour
     public bool IsDead()
     {
         return isDead;
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            TakeDamage(other.gameObject.GetComponent<EnemyStatus>().GetDamage());
+        }
     }
 }

@@ -7,19 +7,35 @@ public class EnemyStatus : MonoBehaviour
 {
     [SerializeField] private float enemyHealth = 10f;
     [SerializeField] private float enemyDamage = 10f;
+    
+    private Animator animator;
+    private bool invulnerable = false;
+
+    private void Start()
+    {
+        animator = gameObject.GetComponent<Animator>();
+    }
 
     public void TakeDamage(float damage)
     {
+        if (invulnerable) return;
+        animator.SetTrigger("hit_trig");
         enemyHealth -= damage;
         if (enemyHealth <= 0)
         {
             Destroy(gameObject);
         }
+        invulnerable = true;
     }
-
-    private void OnCollisionEnter2D(Collision2D other)
+    
+    public float GetDamage()
     {
-        if(other.gameObject.CompareTag("Player"))
-            other.gameObject.GetComponent<PlayerStatus>().TakeDamage(enemyDamage);
+        return enemyDamage;
     }
+    
+    public void SetVulnerable()
+    {
+        invulnerable = false;
+    }
+    
 }

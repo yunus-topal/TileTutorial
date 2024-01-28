@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1898213096001866959}
   - component: {fileID: 3115644678367522543}
   - component: {fileID: 8713157327927240778}
+  - component: {fileID: 7523339584004412653}
   m_Layer: 0
   m_Name: BlueBird
   m_TagString: Enemy
@@ -165,3 +166,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f75e89bf33cb7048aaacc6c759d52e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7523339584004412653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7265039942925010943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6aad267d584dba40b5fbb8a552e0d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 10
+  enemyDamage: 10

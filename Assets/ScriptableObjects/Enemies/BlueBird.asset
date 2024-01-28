@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BlueBird
   m_EditorClassIdentifier: 
   startPosition: {x: 4.5, y: 3.3, z: 0}
-  targetPosition: {x: 0, y: 3.3, z: 0}
+  targetPosition: {x: 0.5, y: 3.3, z: 0}
   speed: 5
   waitTime: 1
