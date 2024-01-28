@@ -6,7 +6,7 @@ using UnityEngine;
 public class EnemyStatus : MonoBehaviour
 {
     [SerializeField] private float enemyHealth = 10f;
-    [SerializeField] private float enemyDamage = 10f;
+    [SerializeField] private float enemyDamage = 40f;
     
     private Animator animator;
     private bool invulnerable = false;

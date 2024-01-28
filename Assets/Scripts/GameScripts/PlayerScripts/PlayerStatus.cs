@@ -12,6 +12,7 @@ public class PlayerStatus : MonoBehaviour
     private Rigidbody2D rb;
 
     private GameObject manager;
+    private bool invulnerable = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -48,11 +49,16 @@ public class PlayerStatus : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        if (invulnerable) return;
+
+        invulnerable = true;
         playerHealth -= damage;
         if (playerHealth <= 0)
         {
             KillPlayer();
+            return;
         }
+        animator.SetTrigger("hit_trig");
     }
     
     public bool IsDead()
@@ -66,5 +72,10 @@ public class PlayerStatus : MonoBehaviour
         {
             TakeDamage(other.gameObject.GetComponent<EnemyStatus>().GetDamage());
         }
+    }
+    
+    public void SetVulnerable()
+    {
+        invulnerable = false;
     }
 }
