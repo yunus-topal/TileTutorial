@@ -24,11 +24,11 @@ public class PlayerMovement : MonoBehaviour
             isJumping = true;
             animator.SetTrigger("jump_trig");
         }
-
+        /*
         if (Input.GetButtonDown("Crouch"))
         {
             isCrouching = true;
-        }
+        }*/ // This is commented out because crouch is disabled for now.
         else if (Input.GetButtonUp("Crouch"))
         {
             isCrouching = false;

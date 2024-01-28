@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Fruit
   - Cinemachine
+  - Enemy
+  - Trap
   layers:
   - Default
   - TransparentFX
@@ -13,10 +15,10 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - PlayerAttack
+  - Enemy
+  - EnemyAttack
   - 
   - 
   - 

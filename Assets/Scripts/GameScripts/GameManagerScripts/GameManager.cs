@@ -9,28 +9,22 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     private int fruitCount = 0;
-
     public TextMeshProUGUI fruitScore;
 
     public Button restartButton;
     public Button exitButton;
 
     public GameObject playerPrefab;
-
     private Vector3 playerLocation = new Vector3(-4f, -1.2f, 0);
 
     public GameObject applePrefab;
-
+    public GameObject blueBirdPrefab;
+    
     public GameObject foreground;
-    private Vector3[] appleLocs =
-    {
-        new Vector3(0.8f, -0.5f, 0),
-        new Vector3(2.7f, -1.4f, 0),
-        new Vector3(1, -3.5f, 0),
-        new Vector3(1.7f, -3.5f, 0),
-        new Vector3(1f, -4.25f, 0),
-        new Vector3(1.7f, -4.25f, 0)
-    };
+
+    [SerializeField] private Collectable[] apples;
+    [SerializeField] private BlueBird[] birds;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -64,10 +58,20 @@ public class GameManager : MonoBehaviour
         exitButton.gameObject.SetActive(false);
         GameObject player = Instantiate(playerPrefab, playerLocation, Quaternion.identity);
         gameObject.GetComponent<ShowHiddenArea>().SetPlayer(player);
-        for (int i = 0; i < appleLocs.Length; i++)
+        
+        // spawn apples
+        foreach (Collectable apple in apples)
         {
-            Instantiate(applePrefab, appleLocs[i], Quaternion.identity);
+            Instantiate(applePrefab, apple.Position, Quaternion.identity);
         }
+        
+        // spawn birds
+        foreach (BlueBird bird in birds)
+        {
+            GameObject o = Instantiate(blueBirdPrefab, bird.StartPosition, Quaternion.identity);
+            o.GetComponent<OscillateMovement>().SetOscillation(bird.StartPosition, bird.TargetPosition, bird.Speed, bird.WaitTime);
+        }
+
         GameObject cam = GameObject.FindGameObjectWithTag("Cinemachine");
         cam.GetComponent<CinemachineVirtualCamera>().Follow = player.transform;
     }
@@ -79,6 +83,13 @@ public class GameManager : MonoBehaviour
         {
             Destroy(fruit);
         }
+        
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach (GameObject enemy in enemies)
+        {
+            Destroy(enemy);
+        }
+
         
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         Destroy(player);
