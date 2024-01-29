@@ -13,23 +13,28 @@ public class PlantAttack : MonoBehaviour
     public GameObject projectilePrefab;
     public Transform projectileSpawnPoint;
 
+    private GameObject player;
+    private static readonly int AttackTrig = Animator.StringToHash("attack_trig");
+
     private void Start()
     {
         animator = gameObject.GetComponent<Animator>();
     }
 
-    public void Initialize(float attackSpeed, float waitTime, float attackDamage)
+    public void Initialize(float attackSpeed, float waitTime, float attackDamage, GameObject player)
     {
         this.bulletSpeed = attackSpeed;
         this.waitTime = waitTime;
         this.attackDamage = attackDamage;
+        this.player = player;
     }
     private void FixedUpdate()
     {
         waitTime -= Time.deltaTime;
-        if (waitTime <= 0)
+        if (waitTime <= 0 && player != null)
         {
-            animator.SetTrigger("attack_trig");
+            if(Math.Abs(player.transform.position.x - transform.position.x) > 10) return;
+            animator.SetTrigger(AttackTrig);
             waitTime = 1f;
         }
     }

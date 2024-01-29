@@ -78,6 +78,10 @@ namespace GameScripts.PlayerScripts
         {
             if (other.gameObject.CompareTag("Enemy"))
             {
+                // clear other forces and velocity before pushback
+                gameObject.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                gameObject.GetComponent<Rigidbody2D>().angularVelocity = 0f;
+                
                 Vector2 pushbackDirection = (transform.position - other.transform.position).normalized;
                 gameObject.GetComponent<Rigidbody2D>().AddForce(pushbackDirection * pushbackForce, ForceMode2D.Impulse);
 

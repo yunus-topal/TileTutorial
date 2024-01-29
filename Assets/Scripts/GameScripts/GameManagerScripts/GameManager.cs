@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
         foreach (Plant plant in plants)
         {
             GameObject o = Instantiate(plantPrefab, plant.Position, Quaternion.identity);
-            o.GetComponent<PlantAttack>().Initialize(plant.BulletSpeed, plant.WaitTime, plant.AttackDamage);
+            o.GetComponent<PlantAttack>().Initialize(plant.BulletSpeed, plant.WaitTime, plant.AttackDamage, player);
         }
         
         GameObject cam = GameObject.FindGameObjectWithTag("Cinemachine");
