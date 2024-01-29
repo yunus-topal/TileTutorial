@@ -251,10 +251,10 @@ MonoBehaviour:
   m_AirControl: 1
   m_WhatIsGround:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 1024
   m_GroundCheck: {fileID: 7382523467879334014}
   m_CeilingCheck: {fileID: 7382523467774388356}
-  m_CrouchDisableCollider: {fileID: 0}
+  m_CrouchDisableCollider: {fileID: 7382523467183489097}
   OnLandEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -310,6 +310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 1000
+  pushbackForce: 10
 --- !u!114 &4411634329451849290
 MonoBehaviour:
   m_ObjectHideFlags: 0

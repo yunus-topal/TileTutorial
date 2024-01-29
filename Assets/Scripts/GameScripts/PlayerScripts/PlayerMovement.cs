@@ -27,14 +27,15 @@ namespace GameScripts.PlayerScripts
                 animator.SetTrigger(JumpTrig);
             }
             /*
-        if (Input.GetButtonDown("Crouch"))
-        {
-            isCrouching = true;
-        }*/ // This is commented out because crouch is disabled for now.
+            if (Input.GetButtonDown("Crouch"))
+            {
+                isCrouching = true;
+            }
             else if (Input.GetButtonUp("Crouch"))
             {
                 isCrouching = false;
             }
+           */ // This is commented out because crouch is disabled for now.
         }
 
         private void FixedUpdate()

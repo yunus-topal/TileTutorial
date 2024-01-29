@@ -12,7 +12,7 @@ namespace GameScripts.PlayerScripts
         private Rigidbody2D rb;
 
         private GameObject manager; 
-        private bool invulnerable = false;
+        //private bool invulnerable = false;
 
         private static readonly int HitTrig = Animator.StringToHash("hit_trig");
         private static readonly int DeathTrig = Animator.StringToHash("death_trig");
@@ -53,9 +53,9 @@ namespace GameScripts.PlayerScripts
 
         public void TakeDamage(float damage)
         {
-            if (invulnerable) return;
+            //if (invulnerable) return;
 
-            invulnerable = true;
+            //invulnerable = true;
             playerHealth -= damage;
             if (playerHealth <= 0)
             {
@@ -64,8 +64,8 @@ namespace GameScripts.PlayerScripts
             }
             animator.SetTrigger(HitTrig);
             
-            //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
-            //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("EnemyAttack"), true);
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("EnemyAttack"), true);
 
         }
     
@@ -87,9 +87,15 @@ namespace GameScripts.PlayerScripts
     
         public void SetVulnerable()
         {
-            invulnerable = false;
-            //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
-            //Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("EnemyAttack"), false);
+            //invulnerable = false;
+            // if player still in an enemies collider, do not revert ignore collision
+            if (Physics2D.OverlapCircle(transform.position, 0.1f, LayerMask.GetMask("Enemy")))
+            {
+                TakeDamage(40f);
+                return;
+            }
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("EnemyAttack"), false);
         }
     }
 }
