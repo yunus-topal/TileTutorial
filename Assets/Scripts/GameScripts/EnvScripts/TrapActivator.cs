@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using GameScripts.PlayerScripts;
 using UnityEngine;
 
 public class TrapActivator : MonoBehaviour

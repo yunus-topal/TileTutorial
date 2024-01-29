@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3115644678367522543}
   - component: {fileID: 8713157327927240778}
   - component: {fileID: 7523339584004412653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BlueBird
   m_TagString: Enemy
   m_Icon: {fileID: 0}
