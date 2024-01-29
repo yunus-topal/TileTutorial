@@ -19,12 +19,13 @@ public class GameManager : MonoBehaviour
 
     public GameObject applePrefab;
     public GameObject blueBirdPrefab;
+    public GameObject plantPrefab;
     
     public GameObject foreground;
 
     [SerializeField] private Collectable[] apples;
     [SerializeField] private BlueBird[] birds;
-    
+    [SerializeField] private Plant[] plants;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,19 +60,26 @@ public class GameManager : MonoBehaviour
         GameObject player = Instantiate(playerPrefab, playerLocation, Quaternion.identity);
         gameObject.GetComponent<ShowHiddenArea>().SetPlayer(player);
         
+        GameObject fruitParent = GameObject.FindGameObjectWithTag("FruitParent");
         // spawn apples
         foreach (Collectable apple in apples)
         {
-            Instantiate(applePrefab, apple.Position, Quaternion.identity);
+            Instantiate(applePrefab, apple.Position, Quaternion.identity, fruitParent.transform);
         }
         
         // spawn birds
         foreach (BlueBird bird in birds)
         {
             GameObject o = Instantiate(blueBirdPrefab, bird.StartPosition, Quaternion.identity);
-            o.GetComponent<OscillateMovement>().SetOscillation(bird.StartPosition, bird.TargetPosition, bird.Speed, bird.WaitTime);
+            o.GetComponent<BlueBirdMovement>().Initialize(bird.StartPosition, bird.TargetPosition, bird.Speed, bird.WaitTime);
         }
-
+        // spawn plants
+        foreach (Plant plant in plants)
+        {
+            GameObject o = Instantiate(plantPrefab, plant.Position, Quaternion.identity);
+            o.GetComponent<PlantAttack>().Initialize(plant.BulletSpeed, plant.WaitTime, plant.AttackDamage);
+        }
+        
         GameObject cam = GameObject.FindGameObjectWithTag("Cinemachine");
         cam.GetComponent<CinemachineVirtualCamera>().Follow = player.transform;
     }

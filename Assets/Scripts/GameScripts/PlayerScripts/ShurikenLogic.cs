@@ -1,16 +1,17 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace GameScripts.PlayerScripts
 {
     public class ShurikenLogic : MonoBehaviour
     {
     
-        [SerializeField] private float speed = 45f;
+        [FormerlySerializedAs("speed")] [SerializeField] private float rotateSpeed = 45f;
         // Update is called once per frame
         void FixedUpdate()
         {
             // Rotate the shuriken
-            transform.Rotate(new Vector3(0, 0, speed) * Time.deltaTime);
+            transform.Rotate(new Vector3(0, 0, rotateSpeed) * Time.deltaTime);
         }
     
     

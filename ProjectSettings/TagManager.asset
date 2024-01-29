@@ -8,6 +8,9 @@ TagManager:
   - Cinemachine
   - Enemy
   - Trap
+  - EnemyAttack
+  - PlayerAttack
+  - FruitParent
   layers:
   - Default
   - TransparentFX
