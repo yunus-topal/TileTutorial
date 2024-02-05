@@ -20,12 +20,15 @@ public class GameManager : MonoBehaviour
     public GameObject applePrefab;
     public GameObject blueBirdPrefab;
     public GameObject plantPrefab;
+    public GameObject rabbitPrefab;
     
     public GameObject foreground;
 
     [SerializeField] private Collectable[] apples;
     [SerializeField] private BlueBird[] birds;
     [SerializeField] private Plant[] plants;
+    [SerializeField] private Rabbit[] rabbits;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -42,7 +45,6 @@ public class GameManager : MonoBehaviour
     {
         if (won)
         {
-            //TODO 
             GameObject player = GameObject.FindGameObjectWithTag("Player");
             Destroy(player);
         }
@@ -78,6 +80,13 @@ public class GameManager : MonoBehaviour
         {
             GameObject o = Instantiate(plantPrefab, plant.Position, Quaternion.identity);
             o.GetComponent<PlantAttack>().Initialize(plant.BulletSpeed, plant.WaitTime, plant.AttackDamage, player);
+        }
+        
+        // spawn plants
+        foreach (Rabbit rabbit in rabbits)
+        {
+            GameObject o = Instantiate(rabbitPrefab, rabbit.Position, Quaternion.identity);
+            o.GetComponent<RabbitMovement>().SetRabbitSpeed(rabbit.Speed);
         }
         
         GameObject cam = GameObject.FindGameObjectWithTag("Cinemachine");
