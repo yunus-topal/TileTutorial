@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     public GameObject blueBirdPrefab;
     public GameObject plantPrefab;
     public GameObject rabbitPrefab;
+    public GameObject pigPrefab;
     
     public GameObject foreground;
 
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private BlueBird[] birds;
     [SerializeField] private Plant[] plants;
     [SerializeField] private Rabbit[] rabbits;
+    [SerializeField] private Pig[] pigs;
     
     // Start is called before the first frame update
     void Start()
@@ -82,11 +84,18 @@ public class GameManager : MonoBehaviour
             o.GetComponent<PlantAttack>().Initialize(plant.BulletSpeed, plant.WaitTime, plant.AttackDamage, player);
         }
         
-        // spawn plants
+        // spawn rabbits
         foreach (Rabbit rabbit in rabbits)
         {
             GameObject o = Instantiate(rabbitPrefab, rabbit.Position, Quaternion.identity);
             o.GetComponent<RabbitMovement>().SetRabbitSpeed(rabbit.Speed);
+        }
+        
+        // spawn pigs
+        foreach (Pig pig in pigs)
+        {
+            GameObject o = Instantiate(pigPrefab, pig.StartPosition, Quaternion.identity);
+            o.GetComponent<PigMovement>().Initialize(pig.StartPosition, pig.TargetPosition, pig.Speed, pig.WaitTime);
         }
         
         GameObject cam = GameObject.FindGameObjectWithTag("Cinemachine");

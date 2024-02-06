@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42d20d609a7ed8b4a9aa403d6576b330, type: 3}
   m_Name: BlueBird
   m_EditorClassIdentifier: 
-  startPosition: {x: 4.5, y: 3.3, z: 0}
-  targetPosition: {x: 0.5, y: 3.3, z: 0}
+  startPosition: {x: 24, y: 3.6, z: 0}
+  targetPosition: {x: 19.6, y: 3.6, z: 0}
   speed: 5
   waitTime: 1

@@ -9,7 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65fcdad5a7b82243852b46244525f21, type: 3}
-  m_Name: Apple7
+  m_Script: {fileID: 11500000, guid: ddde07062af6aa2429b7405f316c88d2, type: 3}
+  m_Name: Pig
   m_EditorClassIdentifier: 
-  position: {x: 21.85, y: 3, z: -0.03}
+  startPosition: {x: 25, y: -2.3, z: 0}
+  targetPosition: {x: 19, y: -2.3, z: 0}
+  speed: 5
+  waitTime: 1

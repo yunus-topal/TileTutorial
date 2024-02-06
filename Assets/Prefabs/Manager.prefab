@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1765226564879719476
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2467311377388645903}
+  - component: {fileID: 8492630262518389769}
+  - component: {fileID: 1865537855686609454}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2467311377388645903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765226564879719476}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8492630262518389769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765226564879719476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0cdd3ea3787aa34888da71947adf9d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fruitScore: {fileID: 0}
+  restartButton: {fileID: 0}
+  exitButton: {fileID: 0}
+  playerPrefab: {fileID: 7382523467183489138, guid: 96a314b4bebeb69429a250be19375ae0, type: 3}
+  applePrefab: {fileID: 3314551127969674288, guid: f058f9ab4d2418c4e86b4ffce796470b, type: 3}
+  blueBirdPrefab: {fileID: 7265039942925010943, guid: a94cd01deb8c350479e6dec57f2e730d, type: 3}
+  plantPrefab: {fileID: 3843935643492348398, guid: 736485cb995a24a448711fed5bfbff7f, type: 3}
+  rabbitPrefab: {fileID: 5472164919820217882, guid: 4c3cd64ecc148f4458a9defd9565b41e, type: 3}
+  pigPrefab: {fileID: 2614850502682422292, guid: bb593f35e32c0264ab435abb940a8f05, type: 3}
+  foreground: {fileID: 0}
+  apples:
+  - {fileID: 11400000, guid: 9a2bae49a01eb674391412346c1b21e1, type: 2}
+  - {fileID: 11400000, guid: 8489a1448a4adcd43bd999f9c9cf3146, type: 2}
+  - {fileID: 11400000, guid: 78d6c309b8677bb408f10bab6f6fc6b7, type: 2}
+  - {fileID: 11400000, guid: 2f7eac2dd563cbf49be312e58b6d2dfa, type: 2}
+  - {fileID: 11400000, guid: 5e13c757e3e5ca1419b5569c9568728f, type: 2}
+  - {fileID: 11400000, guid: 48a6c8ed802326b4499fa7ead87f0e1c, type: 2}
+  - {fileID: 11400000, guid: 8eae6d91dff257d419cb9e0b48e71412, type: 2}
+  birds:
+  - {fileID: 11400000, guid: 2cadc5d1d34ac994981a46fce2526a72, type: 2}
+  plants:
+  - {fileID: 11400000, guid: 1c563e0bb472d4f458181e82dea392e0, type: 2}
+  rabbits:
+  - {fileID: 11400000, guid: efddc15f889abbd4ba436d8548ce56b2, type: 2}
+  pigs:
+  - {fileID: 11400000, guid: 9d0bffd576e7c11478f180e731082ef1, type: 2}
+--- !u!114 &1865537855686609454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1765226564879719476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17606361cf36c4a43a181a7964490575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  foreground: {fileID: 0}
