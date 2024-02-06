@@ -4,6 +4,7 @@
     {
         private void Start()
         {
+            base.Start();
             enemyHealth = 20f;
         }
     }

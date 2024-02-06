@@ -18,7 +18,7 @@ public class EnemyStatus : MonoBehaviour
     }
     
 
-    private void Start()
+    protected void Start()
     {
         animator = gameObject.GetComponent<Animator>();
     }
