@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject plantPrefab;
     public GameObject rabbitPrefab;
     public GameObject pigPrefab;
+    public GameObject ghostPrefab;
     
     public GameObject foreground;
 
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Plant[] plants;
     [SerializeField] private Rabbit[] rabbits;
     [SerializeField] private Pig[] pigs;
+    [SerializeField] private Ghost[] ghosts;
     
     // Start is called before the first frame update
     void Start()
@@ -96,6 +98,13 @@ public class GameManager : MonoBehaviour
         {
             GameObject o = Instantiate(pigPrefab, pig.StartPosition, Quaternion.identity);
             o.GetComponent<PigMovement>().Initialize(pig.StartPosition, pig.TargetPosition, pig.Speed, pig.WaitTime);
+        }
+        
+        // spawn ghosts
+        foreach (Ghost ghost in ghosts)
+        {
+            GameObject o = Instantiate(ghostPrefab, ghost.StartPosition, Quaternion.identity);
+            o.GetComponent<GhostMovement>().Initialize(player, ghost.Speed, ghost.DisappearDelay);
         }
         
         GameObject cam = GameObject.FindGameObjectWithTag("Cinemachine");

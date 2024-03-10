@@ -66,6 +66,8 @@ namespace GameScripts.PlayerScripts
             
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), true);
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("EnemyAttack"), true);
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ghost"), true);
+
 
         }
     
@@ -93,13 +95,16 @@ namespace GameScripts.PlayerScripts
         {
             //invulnerable = false;
             // if player still in an enemies collider, do not revert ignore collision
-            if (Physics2D.OverlapCircle(transform.position, 0.1f, LayerMask.GetMask("Enemy")))
+            if (Physics2D.OverlapCircle(transform.position, 0.1f, LayerMask.GetMask("Enemy")) ||
+                Physics2D.OverlapCircle(transform.position, 0.1f, LayerMask.GetMask("Ghost")))
             {
                 TakeDamage(40f);
                 return;
             }
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Enemy"), false);
             Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("EnemyAttack"), false);
+            Physics2D.IgnoreLayerCollision(LayerMask.NameToLayer("Player"), LayerMask.NameToLayer("Ghost"), false);
+
         }
     }
 }
