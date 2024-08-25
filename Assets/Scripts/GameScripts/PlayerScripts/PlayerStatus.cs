@@ -23,6 +23,7 @@ namespace GameScripts.PlayerScripts
         // Start is called before the first frame update
         void Start() {
             _healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
+            _healthSlider.value = 1;
             _fullHealth = playerHealth;
             animator = gameObject.GetComponent<Animator>();
             rb = gameObject.GetComponent<Rigidbody2D>();

@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Rabbit[] rabbits;
     [SerializeField] private Pig[] pigs;
     [SerializeField] private Ghost[] ghosts;
+    [SerializeField] private GameObject bossDoor;
     
     // Start is called before the first frame update
     void Start()
@@ -134,5 +135,9 @@ public class GameManager : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    public void SpawnBoss() {
+        bossDoor.SetActive(true);
     }
 }

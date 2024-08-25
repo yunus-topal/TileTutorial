@@ -9,7 +9,7 @@ public class RabbitMovement : MonoBehaviour
     private float speed = -5f;
     private bool goingLeft = true;
     
-    private float jumpForce = 200f;
+    private float jumpForce = 600f;
     private bool isGrounded = false;
     private float jumpCooldown = 1.5f;
 

@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyHealth: 10
-  enemyDamage: 40
+  enemyDamage: 20
 --- !u!95 &61756164510673308
 Animator:
   serializedVersion: 5

@@ -7,7 +7,7 @@ public class PlantAttack : MonoBehaviour
 {
     private float bulletSpeed = 200f;
     private float waitTime = 1f;
-    private float attackDamage = 30f;
+    private float attackDamage = 25f;
     private Animator animator;
     
     public GameObject projectilePrefab;
