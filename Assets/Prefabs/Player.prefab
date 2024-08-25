@@ -309,8 +309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9edf252dad843f14a92c467dacf4a807, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: 1000
+  playerHealth: 100
   pushbackForce: 3
+  healthSlider: {fileID: 0}
 --- !u!114 &4411634329451849290
 MonoBehaviour:
   m_ObjectHideFlags: 0

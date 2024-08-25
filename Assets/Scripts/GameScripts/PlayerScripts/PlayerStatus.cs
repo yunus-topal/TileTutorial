@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GameScripts.PlayerScripts
 {
@@ -6,7 +7,9 @@ namespace GameScripts.PlayerScripts
     {
         [SerializeField] private float playerHealth = 100f;
         [SerializeField] private float pushbackForce = 10f;
+        private Slider _healthSlider;
         
+        private float _fullHealth;
         private Animator animator;
         private bool isDead = false;
         private Rigidbody2D rb;
@@ -18,8 +21,9 @@ namespace GameScripts.PlayerScripts
         private static readonly int DeathTrig = Animator.StringToHash("death_trig");
 
         // Start is called before the first frame update
-        void Start()
-        {
+        void Start() {
+            _healthSlider = GameObject.Find("HealthBar").GetComponent<Slider>();
+            _fullHealth = playerHealth;
             animator = gameObject.GetComponent<Animator>();
             rb = gameObject.GetComponent<Rigidbody2D>();
             manager = GameObject.FindGameObjectWithTag("GameController");
@@ -57,6 +61,8 @@ namespace GameScripts.PlayerScripts
 
             //invulnerable = true;
             playerHealth -= damage;
+            Debug.Log(playerHealth / _fullHealth);
+            _healthSlider.value = playerHealth / _fullHealth;
             if (playerHealth <= 0)
             {
                 KillPlayer();
